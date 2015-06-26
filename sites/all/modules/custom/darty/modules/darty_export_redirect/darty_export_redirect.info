@@ -1,0 +1,5 @@
+name = Darty export redirect
+description = Permet d'exporter les redirections 301 des contenus
+core = 7.x
+package = Darty
+project = darty_export_redirect

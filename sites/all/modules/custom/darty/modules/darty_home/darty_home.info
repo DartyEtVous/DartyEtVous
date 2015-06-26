@@ -1,0 +1,5 @@
+name = Darty_home
+description = Module permettant de gérer la homepage
+core = 7.x
+package = Darty
+project = darty_home

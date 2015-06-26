@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * @file
+ * Darty module installation file.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function darty_schema() {
+
+  $schema['cache_entity_bean'] = drupal_get_schema_unprocessed('system', 'cache');
+  $schema['cache_entity_bean']['description'] = 'Entity cache table for entity ftv_media_video';
+
+  return $schema;
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Enable Redis module.
+ */
+function darty_update_7001() {
+  $t = get_t();
+
+  module_enable(array('redis'));
+
+  return $t('Redis module enabled.');
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Enable darty_nodeviewcount module.
+ */
+function darty_update_7002() {
+  $t = get_t();
+
+  module_enable(array('darty_nodeviewcount'));
+
+  return $t('Darty Node View Count module enabled.');
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Enable Entity cache & Bean Entity cache module.
+ */
+function darty_update_7003() {
+  $t = get_t();
+
+  module_enable(array('entitycache', 'bean_entitycache'));
+
+  return $t('Entity cache & Bean Entity cache module enabled.');
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Enable File (Field) Paths module.
+ */
+function darty_update_7004() {
+  $t = get_t();
+
+  module_enable(array('filefield_paths'));
+
+  return $t('File (Field) Paths module enabled.');
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Enable darty_quizz module.
+ */
+function darty_update_7005() {
+  $t = get_t();
+
+  module_enable(array('darty_quizz'));
+
+  return $t('darty_quizz module enabled.');
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Enable quizz_features module.
+ */
+function darty_update_7006() {
+  $t = get_t();
+
+  module_enable(array('quizz_features'));
+
+  return $t('quizz_features module enabled.');
+}
