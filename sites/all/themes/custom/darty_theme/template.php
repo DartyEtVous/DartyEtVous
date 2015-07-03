@@ -29,6 +29,22 @@ function darty_theme_preprocess_html(&$variables) {
 //    drupal_add_css('http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic', array('group' => CSS_THEME));
 }
 
+function darty_theme_preprocess_node(&$variables) {
+    
+    $element = array(
+       '#tag' => 'meta',
+        '#attributes' => array(
+            'name' => 'robots',
+           'content' => 'noindex,follow',
+       ),
+   );
+
+    if ($variables['type'] ==="article_avec_sommaire"){
+        drupal_add_html_head($element, 'mytheme_noindex');
+    }
+
+}
+
 /**
  * Implementation of template_preprocess_page
  */
