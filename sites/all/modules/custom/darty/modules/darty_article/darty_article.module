@@ -512,6 +512,19 @@ function darty_article_preprocess_node_diaporama(&$vars) {
 
         drupal_add_js(drupal_get_path('module', 'darty_article') . '/js/diaporama.js', array('type' => 'file', 'scope' => 'footer'));
     }
+    
+    /** Non e=idexation de pages   */
+    if ( "Oui" === $node_article->field_non_indexe[LANGUAGE_NONE][0]['value'] ){
+        $element = array(
+            '#tag' => 'meta',
+            '#attributes' => array(
+                'name' => 'robots',
+                'content' => 'noindex,follow',
+            ),
+        );
+        drupal_add_html_head($element, 'mytheme_noindex');
+    } 
+    
 }
 
 function get_info_produits($codics) {
@@ -586,6 +599,20 @@ function darty_article_preprocess_node_article_sans_sommaire(&$vars) {
             $vars['position_diapo'] = 'none';
     }
     //$vars['diapos'] = array_merge($vars['diapos'],$vars['diapos'],$vars['diapos']);
+    //field_non_indexe
+    
+    /** Non e=idexation de pages   */
+    if ( "Oui" === $node_article->field_non_indexe[LANGUAGE_NONE][0]['value'] ){
+        $element = array(
+            '#tag' => 'meta',
+            '#attributes' => array(
+                'name' => 'robots',
+                'content' => 'noindex,follow',
+            ),
+        );
+        drupal_add_html_head($element, 'mytheme_noindex');
+    }    
+    
 }
 
 /**
@@ -614,6 +641,19 @@ function darty_article_preprocess_node_article_avec_sommaire(&$vars) {
             $vars['chapitres'][] = array('titre' => $wrapper->label->value(), 'id' => $id, 'contenu' => $texte, 'render' => bean_view($chapitre, $id));
         }
     }
+    
+    /** Non e=idexation de pages   */
+    if ( "Oui" === $node_article->field_non_indexe[LANGUAGE_NONE][0]['value'] ){
+        $element = array(
+            '#tag' => 'meta',
+            '#attributes' => array(
+                'name' => 'robots',
+                'content' => 'noindex,follow',
+            ),
+        );
+        drupal_add_html_head($element, 'mytheme_noindex');
+    } 
+    
 }
 
 /**
@@ -654,6 +694,19 @@ function darty_article_preprocess_node_dossier(&$vars) {
 jQuery('.node-type-dossier .col_right').css('margin-top',(jQuery('.node-type-dossier .col_left').height()/2 - jQuery('.node-type-dossier .col_right').height()/2));
 });", array('type' => 'inline', 'scope' => 'footer')
     );
+    
+     /** Non e=idexation de pages   */
+    if ( "Oui" === $node_article->field_non_indexe[LANGUAGE_NONE][0]['value'] ){
+        $element = array(
+            '#tag' => 'meta',
+            '#attributes' => array(
+                'name' => 'robots',
+                'content' => 'noindex,follow',
+            ),
+        );
+        drupal_add_html_head($element, 'mytheme_noindex');
+    } 
+    
 }
 
 function cleanCut($string, $length, $cutString = '...') {
