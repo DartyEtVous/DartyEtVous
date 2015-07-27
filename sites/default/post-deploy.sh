@@ -14,3 +14,7 @@ drush cc all
 
 # Disable maintenance mode
 drush vset maintenance_mode 0
+
+# Clear APC cache
+#drush php-eval "apc_clear_cache();"
+#drush php-eval "opcache_reset();"
