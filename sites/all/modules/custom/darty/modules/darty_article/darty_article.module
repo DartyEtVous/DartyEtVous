@@ -696,7 +696,7 @@ jQuery('.node-type-dossier .col_right').css('margin-top',(jQuery('.node-type-dos
     );
     
      /** Non e=idexation de pages   */
-    if ( "Oui" === $node_article->field_non_indexe[LANGUAGE_NONE][0]['value'] ){
+    if ( "Oui" === $node_dossier->field_non_indexe[LANGUAGE_NONE][0]['value'] ){
         $element = array(
             '#tag' => 'meta',
             '#attributes' => array(
